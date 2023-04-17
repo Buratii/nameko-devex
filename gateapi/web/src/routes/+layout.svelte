@@ -2,6 +2,6 @@
 	import '../app.css';
 </script>
 
-<main>
+<main class="flex w-full h-screen justify-center items-center">
 	<slot />
 </main>
