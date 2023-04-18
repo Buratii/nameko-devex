@@ -1,24 +1,32 @@
 <script lang="ts">
 	import Input from '$lib/components/input/Input.svelte'
 	import Section from '$lib/components/section/Section.svelte'
-
-	import property from '$lib/assets/images/property.png'
-	import house from '$lib/assets/svgs/House.svg'
-	import building from '$lib/assets/svgs/Building.svg'
 	import SelectionButton from '$lib/components/selectionButton/SelectionButton.svelte'
+
+	import property from '$lib/assets/images/property.png'	
+  import Select from '$lib/components/select/Select.svelte'
+  import DatePicker from '$lib/components/datePicker/DatePicker.svelte'
 
 	interface SelectionButtonData {
 		id: number
 		name: string
-		icon: string
+		icon: any
 	}
 
 	let propertyTypes: SelectionButtonData[] = [
-		{ id: 1, name: 'Single-Family', icon: house },
-		{ id: 2, name: 'Multi-Family', icon: building },
-		{ id: 3, name: 'Townhome', icon: house },
-		{ id: 4, name: 'Condo', icon: building },
+		{ id: 1, name: 'Single-Family', icon: 'house' },
+		{ id: 2, name: 'Multi-Family', icon: 'building' },
+		{ id: 3, name: 'Townhome', icon: 'house'},
+		{ id: 4, name: 'Condo', icon: 'building' },
 	]
+
+	let selectData = [1, 2, 3, 4]
+
+	let cmpDatePicker
+	
+	function datepicked (e) {
+		console.log(e.detail.datepicked)
+	}
 </script>
 
 <div class="flex w-full max-w-4xl justify-between flex-wrap">
@@ -31,7 +39,7 @@
 		</p>
 
 		<div class="space-y-4">
-			<Input label="Property Name" placeholder="opioi" />
+			<Input label="Property Name" />
 			<Input label="Address" />
 		</div>
 	</div>
@@ -44,5 +52,26 @@
 		{/each}
 	</Section>
 
-	<Section label="Unit info" />
+	<Section class="mb-18" label="Unit info">
+		<div class="flex flex-col items-center w-full p-6 space-y-6 shadow-md rounded">
+			<div class="w-full box-content flex flex-row justify-between space-x-6">
+				<Input label="Unit Name" placeholder="Name and/or number" />
+				<Input label="Rent" icon="money" suffix="/mo" type="text" />
+				<Input label="Deposit" icon="money" suffix="/mo" type="text" />
+				<Input label="Lease Length (months)" type="text" pattern="\d*" maxlength={2} />
+			</div>
+
+			<div class="grid grid-cols-5 gap-4">
+				<Select label="Beds" data={selectData} icon="beds" />
+				<Select label="Baths" data={selectData} icon="baths" />
+				<Input label="Sq. Ft." type="text" />
+				<DatePicker label="Available on" bind:this={cmpDatePicker} on:datepicked={datepicked} />
+				<Select label="Vacancy" data={selectData} icon="profile" />
+			</div>
+		</div>
+	</Section>
+
+	<button class="button border border-purple-700">BACK</button>
+	<button class="button bg-purple-400 text-white drop-shadow-md">CONTINUE</button>
+
 </div>
