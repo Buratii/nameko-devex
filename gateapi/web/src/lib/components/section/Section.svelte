@@ -2,7 +2,7 @@
   export let label: string;
 </script>
 
-<div class="w-full mt-6">
+<div class={`${$$props.class} w-full mt-6`}>
   <span class="font-bold">{label}</span>
 
   <div class="section flex flex-row justify-between pt-2">
