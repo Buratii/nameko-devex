@@ -2,11 +2,34 @@
 @import '@fontsource/fira-mono';
 
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
     @apply text-purple-800;
   } 
+
+  @font-face {
+    font-family: 'Amplitude Wide';
+    src: url('$lib/assets/fonts/amplitude-wide-regular.otf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Amplitude Wide';
+    src: url('$lib/assets/fonts/amplitude-wide-medium.otf') format('truetype');
+    font-weight: bold;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Amplitude Wide Book';
+    src: url('$lib/assets/fonts/amplitude-wide-book.otf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+  }
 }
 
 @layer components {
@@ -14,6 +37,3 @@
     @apply px-10.5 py-2.5 rounded-full hover:opacity-80 duration-100 ease-linear;
   }
 }
-
-@tailwind components;
-@tailwind utilities;

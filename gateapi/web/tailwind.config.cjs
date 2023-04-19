@@ -1,8 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: ['./src/**/*.html', './src/**/*{.svelte,.svg}', './src/lib/assets/svgs/*.svg'],
-  // content: ["./src/*/.{astro,html,js,jsx,svelte,ts,tsx,vue,svg}"],
+  content: ['./src/**/*.html', './src/**/*{.svelte,.svg}'],
   theme: {
     extend: {
       boxShadow: {
@@ -13,7 +12,8 @@ module.exports = {
       },
       colors: {
         'gray': {
-          50: '#E5E5E4',
+          50: '#FAFAFA',
+          100: '#E5E5E4',
         },
         'purple': {
           100: '#F3F1FE',
@@ -30,7 +30,9 @@ module.exports = {
         '48.5': '12.125rem',
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif']
+        inter: ['Inter', 'sans-serif'],
+        'amplitude': ['Amplitude Wide'],
+        'amplitude-book': ['Amplitude Wide Book']
       },
     },
   },
