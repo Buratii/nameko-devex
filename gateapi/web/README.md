@@ -6,10 +6,6 @@
 
 Buying and selling quality airships since 2012
 
-### Built With
-
-- [![Svelte][Svelte.dev]][Svelte-url]
-
 # Exercise
 
 Please follow the README-DevEnv.md setup guide for the server until the smoke tests and unit tests are completed:
