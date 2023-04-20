@@ -1,6 +1,6 @@
 # Nameko Examples
 
-![Airship Ltd](airship.png)
+![Airship Ltd](../../airship.png)
 
 ## Airship Ltd
 
